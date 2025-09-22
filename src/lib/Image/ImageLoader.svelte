@@ -1,18 +1,20 @@
 <script lang="ts">
-	interface Props {
-		url: string;
-		alt: string;
-	}
-	let { url, alt }: Props = $props();
-
-	import IntersectionObserver from '$lib/Image/IntersectionObserver.svelte';
-	import Image from '$lib/Image/Image.svelte';
+	import Image from './Image.svelte';
+	import { useIntersectionObserver } from './UseIntersectionObserver';
+	let { url, alt } = $props();
+	let isVisible = $state(true);
+	let toggleVisible = {
+		set isIntersecting(v: boolean) {
+			isVisible = v;
+		}
+	};
+	const root = null;
+	const rootMargin = '0px';
+	const options = { root, rootMargin };
 </script>
 
-<IntersectionObserver>
-	{#snippet children({ isVisible }: { isVisible: boolean })}
-		{#if isVisible}
-			<Image {alt} {url} />
-		{/if}
-	{/snippet}
-</IntersectionObserver>
+<div {@attach useIntersectionObserver(toggleVisible, options)}>
+	{#if isVisible}
+		<Image {alt} {url} />
+	{/if}
+</div>

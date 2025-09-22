@@ -24,7 +24,7 @@
 <style>
 	img {
 		opacity: 0;
-		transition: opacity 3000ms ease-out;
+		transition: opacity 1200ms ease-out;
 	}
 	img.loaded {
 		opacity: 1;

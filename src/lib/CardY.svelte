@@ -1,5 +1,5 @@
 <script lang="ts">
-	import IntersectionObserver from './Image/ImageLoader.svelte';
+	import ImageLoader from '$lib/ImageX/ImageLoaderX.svelte';
 
 	let { datum } = $props();
 </script>
@@ -7,7 +7,7 @@
 <div class="card">
 	<div class="image">
 		<a href={`/poke/${datum.url}`}>
-			<IntersectionObserver url={datum.url} alt={datum.name} />
+			<ImageLoader url={datum.url} alt={datum.name} />
 		</a>
 	</div>
 
