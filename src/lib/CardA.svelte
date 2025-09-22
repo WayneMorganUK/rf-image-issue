@@ -1,5 +1,5 @@
 <script lang="ts">
-	import ImageLoader from '$lib/ImageX/ImageLoaderX.svelte';
+	import ImageLoaderA from '$lib/Image/ImageLoaderA.svelte';
 
 	let { datum } = $props();
 </script>
@@ -7,7 +7,7 @@
 <div class="card">
 	<div class="image">
 		<a href={`/poke/${datum.url}`}>
-			<ImageLoader url={datum.url} alt={datum.name} />
+			<ImageLoaderA url={datum.url} alt={datum.name} />
 		</a>
 	</div>
 

@@ -1,12 +1,12 @@
 <script lang="ts">
-	import Card from '$lib/Card.svelte';
+	import CardA from '$lib/CardA.svelte';
 	let { poke_data } = $props();
 </script>
 
-<div class="title">With intersectionObserver & Attachment</div>
+<div class="title">With intersectionObserver</div>
 <div class="Poke-list">
 	{#each poke_data.pokemons as datum, i}
-		<Card {datum} />
+		<CardA {datum} />
 	{/each}
 </div>
 

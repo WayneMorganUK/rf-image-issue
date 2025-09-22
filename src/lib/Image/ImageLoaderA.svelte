@@ -5,14 +5,14 @@
 	}
 	let { url, alt }: Props = $props();
 
-	import IntersectionObserver from '$lib/ImageX/IntersectionObserverX.svelte';
-	import Image from '$lib/Image/Image.svelte';
+	import IntersectionObserverA from '$lib/Image/IntersectionObserverA.svelte';
+	import ImageA from '$lib/Image/ImageA.svelte';
 </script>
 
-<IntersectionObserver>
+<IntersectionObserverA>
 	{#snippet children({ isVisible }: { isVisible: boolean })}
 		{#if isVisible}
-			<Image {alt} {url} />
+			<ImageA {alt} {url} />
 		{/if}
 	{/snippet}
-</IntersectionObserver>
+</IntersectionObserverA>
