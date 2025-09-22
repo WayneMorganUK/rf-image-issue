@@ -1,29 +1,15 @@
 <script lang="ts">
-	const IMAGE_API = 'https://image.tmdb.org/t/p/w500';
-
 	interface Props {
 		url: string;
 		alt: string;
 	}
 	let { url, alt }: Props = $props();
-
-	import { onMount } from 'svelte';
-
 	let loaded = $state(false);
-
-	let thisImage: HTMLImageElement;
 
 	function getIndex(url: string): string {
 		const parts = url.split('/');
 		return parts[parts.length - 2];
 	}
-
-	onMount(() => {
-		console.log('thisImage', thisImage);
-		thisImage.onload = () => {
-			loaded = true;
-		};
-	});
 </script>
 
 <img
@@ -32,7 +18,7 @@
 	src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${getIndex(url)}.png`}
 	{alt}
 	class:loaded
-	bind:this={thisImage}
+	onload={() => (loaded = true)}
 />
 
 <style>

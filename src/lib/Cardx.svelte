@@ -1,13 +1,18 @@
 <script lang="ts">
-	import ImageLoader from '$lib/Image/ImageLoader.svelte';
-
 	let { datum } = $props();
+	function getIndex(url: string): string {
+		const parts = url.split('/');
+		return parts[parts.length - 2];
+	}
 </script>
 
 <div class="card">
 	<div class="image">
 		<a href={`/poke/${datum.url}`}>
-			<ImageLoader url={datum.url} alt={datum.name} />
+			<img
+				src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${getIndex(datum.url)}.png`}
+				alt={datum.name}
+			/>
 		</a>
 	</div>
 

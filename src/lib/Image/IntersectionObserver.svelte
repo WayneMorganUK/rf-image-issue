@@ -1,8 +1,4 @@
 <script lang="ts">
-	// https://css-tricks.com/lazy-loading-images-in-svelte/
-	// https://github.com/donovanh/svelte-image-loading
-
-	import { onMount } from 'svelte';
 	import type { Snippet } from 'svelte';
 	let { children }: { children: Snippet<[{ isVisible: boolean }]> } = $props();
 	let isVisible = $state(false);
@@ -12,7 +8,7 @@
 		isVisible = entries[0].isIntersecting;
 	};
 
-	onMount(() => {
+	$effect(() => {
 		const root = null;
 		const rootMargin = '0px';
 		const options = { root, rootMargin };
